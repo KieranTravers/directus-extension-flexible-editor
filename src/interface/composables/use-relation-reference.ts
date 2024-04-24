@@ -69,7 +69,7 @@ export function useRelationReference({
     if (!duplicationFields.length)
         errors.value.push("errors.duplication_fields_not_set");
 
-    // [DIRECTUS_CORE] from m2a-field
+    // [anythink_CORE] from m2a-field
     const allowedCollections = computed(() => {
         if (!relationInfo.value) return [];
         return relationInfo.value.allowedCollections.filter(
@@ -77,7 +77,7 @@ export function useRelationReference({
         );
     });
 
-    // [DIRECTUS_CORE] from m2a-field
+    // [anythink_CORE] from m2a-field
     const templates: ComputedRef<Record<string, any>> = computed(() => {
         if (!relationInfo.value) return {};
         const templates: Record<string, string> = {};
@@ -95,7 +95,7 @@ export function useRelationReference({
         return templates;
     });
 
-    // [DIRECTUS_CORE][!MODIFIED!] from m2a-field
+    // [anythink_CORE][!MODIFIED!] from m2a-field
     const fields = computed(() => {
         if (!relationInfo.value) return [];
         const fields: string[] = [];
@@ -123,14 +123,14 @@ export function useRelationReference({
         // return fields;
     });
 
-    // [DIRECTUS_CORE][!MODIFIED!] from m2a-field. `limit` needs to be -1, because we do not have pages in any case!
+    // [anythink_CORE][!MODIFIED!] from m2a-field. `limit` needs to be -1, because we do not have pages in any case!
     const query = computed<RelationQueryMultiple>(() => ({
         fields: fields.value,
         limit: -1,
         page: 1,
     }));
 
-    // [DIRECTUS_CORE] from m2a-field
+    // [anythink_CORE] from m2a-field
     const {
         create,
         update,
@@ -149,7 +149,7 @@ export function useRelationReference({
         getItemEdits,
     } = useRelationMultiple(value, query, relationInfo, itemPrimaryKey);
 
-    // [DIRECTUS_CORE][!MODIFIED!] from m2a-field
+    // [anythink_CORE][!MODIFIED!] from m2a-field
     const editModalActive = ref(false);
     const currentlyEditing = ref<string | number | null>(null);
     const relatedPrimaryKey = ref<string | number | null>(null);
@@ -160,7 +160,7 @@ export function useRelationReference({
     const editsAtStart = ref<Record<string, any>>({});
     let newItem = false;
 
-    // [DIRECTUS_CORE] from m2a-field
+    // [anythink_CORE] from m2a-field
     function createItem(collection: string) {
         if (!relationInfo.value) return;
 
@@ -176,7 +176,7 @@ export function useRelationReference({
         editModalActive.value = true;
     }
 
-    // [DIRECTUS_CORE][!MODIFIED!] from m2a-field
+    // [anythink_CORE][!MODIFIED!] from m2a-field
     function editItem(item: DisplayItem) {
         if (!relationInfo.value) return;
 
@@ -217,7 +217,7 @@ export function useRelationReference({
         }
     }
 
-    // [DIRECTUS_CORE][!MODIFIED!] from m2a-field
+    // [anythink_CORE][!MODIFIED!] from m2a-field
     function stageEdits(item: Record<string, any>) {
         if (isEmpty(item)) return;
 
@@ -252,7 +252,7 @@ export function useRelationReference({
         }
     }
 
-    // [DIRECTUS_CORE][!MODIFIED!] from m2a-field
+    // [anythink_CORE][!MODIFIED!] from m2a-field
     function deleteItem(item: DisplayItem) {
         // if (
         //     page.value === Math.ceil(totalItemCount.value / limit.value) &&
@@ -264,7 +264,7 @@ export function useRelationReference({
         remove(item);
     }
 
-    // [DIRECTUS_CORE] from m2a-field
+    // [anythink_CORE] from m2a-field
     function hasAllowedCollection(item: DisplayItem) {
         const info = relationInfo.value;
         if (!info) return false;
@@ -277,7 +277,7 @@ export function useRelationReference({
         );
     }
 
-    // [DIRECTUS_CORE][!MODIFIED!] from m2a-field
+    // [anythink_CORE][!MODIFIED!] from m2a-field
     function getCollectionName(item: DisplayItem) {
         const info = relationInfo.value;
         if (!info) return false;
