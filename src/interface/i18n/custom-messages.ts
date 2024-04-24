@@ -36,7 +36,7 @@ export default {
         italic: "$t:wysiwyg_options.italic",
         strike: "$t:wysiwyg_options.strikethrough",
         code: "Code",
-        link: "$t:field_options.directus_roles.fields.link_name",
+        link: "Add/Edit Link",
         unlink: "$t:wysiwyg_options.unlink",
         autolink: "Autolink",
         hard_break: "Hard Break",
